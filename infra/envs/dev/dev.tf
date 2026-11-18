@@ -15,8 +15,9 @@ provider "aws" {
 module "platform" {
   source = "../../modules"
 
-  name     = "eks-dev"
-  vpc_cidr = "10.0.0.0/16"
+  name            = "eks-dev"
+  vpc_cidr        = "10.0.0.0/16"
+  cluster_version = "1.33"
 
   public_subnets = {
     public-a = { cidr_block = "10.0.1.0/24", availability_zone = "us-east-1a" }
