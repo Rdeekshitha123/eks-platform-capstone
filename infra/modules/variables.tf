@@ -84,3 +84,41 @@ variable "enabled_cluster_log_types" {
   type        = list(string)
   default     = []
 }
+
+variable "node_instance_types" {
+  description = "EC2 instance types for the worker nodes"
+  type        = list(string)
+}
+
+variable "node_ami_type" {
+  description = "AMI type for the worker nodes"
+  type        = string
+  default     = "AL2023_x86_64_STANDARD"
+}
+
+variable "node_capacity_type" {
+  description = "ON_DEMAND or SPOT"
+  type        = string
+  default     = "ON_DEMAND"
+}
+
+variable "node_disk_size" {
+  description = "Root disk size (GB) for each node"
+  type        = number
+  default     = 20
+}
+
+variable "node_min_size" {
+  description = "Minimum number of nodes"
+  type        = number
+}
+
+variable "node_desired_size" {
+  description = "Desired number of nodes"
+  type        = number
+}
+
+variable "node_max_size" {
+  description = "Maximum number of nodes"
+  type        = number
+}
