@@ -49,3 +49,76 @@ variable "private_subnet_tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "cluster_version" {
+  description = "Kubernetes version for the EKS control plane. Check supported: aws eks describe-cluster-versions"
+  type        = string
+}
+
+variable "endpoint_private_access" {
+  description = "Allow access to the API server from inside the VPC"
+  type        = bool
+  default     = true
+}
+
+variable "endpoint_public_access" {
+  description = "Allow access to the API server from the internet (needed to run kubectl from your laptop)"
+  type        = bool
+  default     = true
+}
+
+variable "public_access_cidrs" {
+  description = "CIDR blocks allowed to reach the public API endpoint"
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
+}
+
+variable "authentication_mode" {
+  description = "Cluster authentication mode: API, API_AND_CONFIG_MAP or CONFIG_MAP"
+  type        = string
+  default     = "API"
+}
+
+variable "enabled_cluster_log_types" {
+  description = "Control plane log types to send to CloudWatch (empty = none, no extra cost)"
+  type        = list(string)
+  default     = []
+}
+
+variable "node_instance_types" {
+  description = "EC2 instance types for the worker nodes"
+  type        = list(string)
+}
+
+variable "node_ami_type" {
+  description = "AMI type for the worker nodes"
+  type        = string
+  default     = "AL2023_x86_64_STANDARD"
+}
+
+variable "node_capacity_type" {
+  description = "ON_DEMAND or SPOT"
+  type        = string
+  default     = "ON_DEMAND"
+}
+
+variable "node_disk_size" {
+  description = "Root disk size (GB) for each node"
+  type        = number
+  default     = 20
+}
+
+variable "node_min_size" {
+  description = "Minimum number of nodes"
+  type        = number
+}
+
+variable "node_desired_size" {
+  description = "Desired number of nodes"
+  type        = number
+}
+
+variable "node_max_size" {
+  description = "Maximum number of nodes"
+  type        = number
+}
