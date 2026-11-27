@@ -1,9 +1,9 @@
 variable "name" {
-  type        = string
+  type = string
 }
 
 variable "vpc_cidr" {
-  type        = string
+  type = string
 }
 
 variable "instance_tenancy" {
@@ -29,25 +29,25 @@ variable "public_subnets" {
 }
 
 variable "private_subnets" {
-    type = map(object({
+  type = map(object({
     cidr_block        = string
     availability_zone = string
   }))
 }
 
 variable "public_ip_on_launch" {
-  type        = bool
-  default     = false
+  type    = bool
+  default = false
 }
 
 variable "public_subnet_tags" {
-  type        = map(string)
-  default     = {}
+  type    = map(string)
+  default = {}
 }
 
 variable "private_subnet_tags" {
-  type        = map(string)
-  default     = {}
+  type    = map(string)
+  default = {}
 }
 
 variable "cluster_version" {
