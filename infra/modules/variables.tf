@@ -122,3 +122,20 @@ variable "node_max_size" {
   description = "Maximum number of nodes"
   type        = number
 }
+
+variable "ecr_repository_name" {
+  description = "Name of the ECR repository"
+  type        = string
+}
+
+variable "ecr_image_tag_mutability" {
+  description = "MUTABLE or IMMUTABLE"
+  type        = string
+  default     = "IMMUTABLE"
+}
+
+variable "ecr_force_delete" {
+  description = "Allow deleting the repository even if it contains images"
+  type        = bool
+  default     = false
+}

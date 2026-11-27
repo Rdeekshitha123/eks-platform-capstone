@@ -24,6 +24,9 @@ module "platform" {
   node_desired_size   = 2
   node_max_size       = 3
 
+  ecr_repository_name = "myapp-dev"
+  ecr_force_delete    = true
+
   public_subnets = {
     public-a = { cidr_block = "10.0.1.0/24", availability_zone = "us-east-1a" }
     public-b = { cidr_block = "10.0.2.0/24", availability_zone = "us-east-1b" }
